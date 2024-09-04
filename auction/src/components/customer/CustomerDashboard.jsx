@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const CustomerDashboard = () => {
   const navigate = useNavigate();
 
-  const userEmail = localStorage.getItem("user")
+  const userEmail = localStorage.getItem("user")////
     ? JSON.parse(localStorage.getItem("user")).email
     : "";
 
