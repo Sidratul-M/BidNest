@@ -64,7 +64,7 @@ const ChangePass = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleLogin}>
+        <form className="space-y-6" onSubmit={handleChangePassword}>
           <div>
             <label
               htmlFor="email"
@@ -89,41 +89,42 @@ const ChangePass = () => {
           <div>
             <div className="flex items-center justify-between">
               <label
-                htmlFor="password"
+                htmlFor="currentPassword"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Password
+                Current Password
               </label>
-              <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
-                >
-                  Forgot password?
-                </a>
-              </div>
             </div>
             <div className="mt-2">
               <input
                 id="currentPassword"
-                type="currentPassword"
+                type="password"
                 name="currentPassword"
-                autoComplete="currentPassword"
-                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
                 required
-                focusBorderColor="black"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="newPassword"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              New Password
+            </label>
             <div className="mt-2">
               <input
-                id="currentPassword"
-                type="currentPassword"
-                name="currentPassword"
-                autoComplete="currentPassword"
-                onChange={(e) => setPasswordnew(e.target.value)}
+                id="newPassword"
+                type="password"
+                name="newPassword"
+                autoComplete="new-password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 required
-                focusBorderColor="black"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
@@ -138,6 +139,7 @@ const ChangePass = () => {
             </button>
           </div>
         </form>
+        {error && <p className="mt-2 text-center text-sm text-red-600">{error}</p>}
       </div>
     </div>
   );
